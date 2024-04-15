@@ -7,8 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export function Modal({ id }) {
-  console.log(id);
+export function Modal() {
   return (
     <Dialog>
       <DialogTrigger asChild>

@@ -27,20 +27,26 @@ export const inputs = [
     type: "text",
   },
   {
-    label: "gender",
-    type: "select",
-    options: [
-      {
-        label: "Male",
-        value: "male",
-      },
-      {
-        label: "Female",
-        value: "female",
-      },
-    ],
-    name: "gender",
-    placeholder: "Enter Your gender",
-    required: true,
+    label: "IMage URL",
+    name: "image",
+    type: "text",
+    placeholder: "Enter Your Image URL",
   },
+  // {
+  //   label: "gender",
+  //   type: "select",
+  //   options: [
+  //     {
+  //       label: "Male",
+  //       value: "male",
+  //     },
+  //     {
+  //       label: "Female",
+  //       value: "female",
+  //     },
+  //   ],
+  //   name: "gender",
+  //   placeholder: "Enter Your gender",
+  //   required: true,
+  // },
 ];
