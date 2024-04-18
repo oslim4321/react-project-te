@@ -5,6 +5,7 @@ import SingleProduct from "@/pages/products/slug";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
 import DashboardPage from "./DashboardPage";
+import Products from "@/pages/products";
 
 export const route = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ export const route = createBrowserRouter([
       },
       {
         path: "products",
-        element: <h1>THis is all the prodct</h1>,
+        element: <Products />,
       },
       {
         path: "product/:id",
