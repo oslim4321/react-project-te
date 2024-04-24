@@ -3,7 +3,7 @@ import { useGetProduct } from "../hook/useGetProduct";
 import { Link } from "react-router-dom";
 
 const Product = () => {
-  const { isError, isLoading, product } = useGetProduct();
+  const { isError, isLoading, product, handleAddTOCArt } = useGetProduct();
 
   if (isLoading) {
     return <div className="text-3xl text-black">loading...</div>;
@@ -38,7 +38,7 @@ const Product = () => {
                         {product?.description?.slice(0, 50)}
                       </p>
                     </div>
-                    <Button className="bg-transparent border-1 text-black border hover:bg-slate-200">
+                    <Button onClick={handleAddTOCArt} className="bg-transparent border-1 text-black border hover:bg-slate-200">
                       Add TO Cart
                     </Button>
 

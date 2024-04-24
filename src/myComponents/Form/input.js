@@ -26,12 +26,12 @@ export const inputs = [
     placeholder: "Enter Your Price",
     type: "text",
   },
-  {
-    label: "IMage URL",
-    name: "image",
-    type: "text",
-    placeholder: "Enter Your Image URL",
-  },
+  // {
+  //   label: "IMage URL",
+  //   name: "image",
+  //   type: "text",
+  //   placeholder: "Enter Your Image URL",
+  // },
   // {
   //   label: "gender",
   //   type: "select",

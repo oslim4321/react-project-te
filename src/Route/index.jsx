@@ -6,6 +6,7 @@ import { createBrowserRouter } from "react-router-dom";
 import HomePage from "./HomePage";
 import DashboardPage from "./DashboardPage";
 import Products from "@/pages/products";
+import CreateProduct from "@/pages/dashboard/createProduct";
 
 export const route = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const route = createBrowserRouter([
       {
         index: true,
         element: <h1>THis is the dashboard</h1>,
+      },
+      {
+        path: "create-product",
+        element: <CreateProduct />,
       },
       {
         path: "settings",
