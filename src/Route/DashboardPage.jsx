@@ -14,6 +14,11 @@ const DashboardPage = () => {
       name: "Support",
       path: "support",
     },
+
+    {
+      name: "Create Product",
+      path: "create-product",
+    },
   ];
   return (
     <div>
