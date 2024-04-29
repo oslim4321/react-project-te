@@ -1,7 +1,8 @@
 import { useGetSingleProduct } from "./hooks/useGetSingleProduct";
+import UpdateForm from './components/UpdateForm'
 
 const SingleProduct = () => {
-  const { isError, isLoading, product } = useGetSingleProduct();
+  const { isError, isLoading, product, handleDeleteProduct } = useGetSingleProduct();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -11,6 +12,7 @@ const SingleProduct = () => {
   }
   console.log(product);
   return (
+   <>
     <div>
       <div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
         <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden h-[500px]">
@@ -57,6 +59,20 @@ const SingleProduct = () => {
               </svg>
             </div>
           </div>
+
+           <div className="py-4 border-b border-gray-200 flex items-center justify-between">
+            <p className="text-base leading-4 text-gray-800 dark:text-gray-300">
+              price
+            </p>
+            <div className="flex items-center justify-center">
+              <p className="text-sm leading-none text-gray-600 dark:text-gray-300">
+                {product?.price}
+              </p>
+              <div className="w-6 h-6 bg-gradient-to-b from-gray-900 to-indigo-500 ml-3 mr-4 cursor-pointer"></div>
+            
+            </div>
+          </div>
+
           <div className="py-4 border-b border-gray-200 flex items-center justify-between">
             <p className="text-base leading-4 text-gray-800 dark:text-gray-300">
               Size
@@ -123,6 +139,8 @@ const SingleProduct = () => {
             </svg>
             Check availability in store
           </button>
+
+          <button onClick={handleDeleteProduct} className='border px-4 py-2'>Delete</button>
           <div>
             <p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 dark:text-gray-300 mt-7">
               {product?.description}
@@ -213,6 +231,9 @@ const SingleProduct = () => {
         </div>
       </div>
     </div>
+
+    <UpdateForm product={product} />
+   </>
   );
 };
 
