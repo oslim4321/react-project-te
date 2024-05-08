@@ -7,6 +7,10 @@ import HomePage from "./HomePage";
 import DashboardPage from "./DashboardPage";
 import Products from "@/pages/products";
 import CreateProduct from "@/pages/dashboard/createProduct";
+import AuthPage from "./AuthPage";
+import SignUp from "@/pages/auth/signup";
+import Login from "@/pages/auth/login";
+import Dashboard from "@/pages/dashboard";
 
 export const route = createBrowserRouter([
   {
@@ -37,7 +41,7 @@ export const route = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h1>THis is the dashboard</h1>,
+        element: <Dashboard />,
       },
       {
         path: "create-product",
@@ -50,6 +54,21 @@ export const route = createBrowserRouter([
       {
         path: "support",
         element: <h1>THis is the support</h1>,
+      },
+    ],
+  },
+
+  {
+    path: "/auth",
+    element: <AuthPage />,
+    children: [
+      {
+        index: true,
+        element: <SignUp />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
