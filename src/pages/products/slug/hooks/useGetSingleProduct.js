@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { publicRequest } from "@/shared/api/request";
 
 export const useGetSingleProduct = () => {
   const [product, setproduct] = useState();
   const [isLoading, setisLoading] = useState(false);
   const [isError, setisError] = useState(false);
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const getProduct = async () => {
     setisLoading(true);
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/product/${id}`);
-      const data = await res.json();
+      // const res = await fetch(`http://localhost:4000/api/v1/product/${id}`);
+      // const data = await res.json();
+
+      const { data } = await publicRequest.get(`/product/${id}`);
       setproduct(data);
     } catch (error) {
       setisError(true);
@@ -23,15 +25,15 @@ export const useGetSingleProduct = () => {
     }
   };
 
-  const handleDeleteProduct = async() =>{
+  const handleDeleteProduct = async () => {
     try {
-      const res = await axios.delete(`http://localhost:4000/api/v1/product/delete/${id}`)
+      const res = await publicRequest.delete(`/product/delete/${id}`);
       console.log(res.data);
-      navigate('/products')
+      navigate("/products");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getProduct();
@@ -40,6 +42,7 @@ export const useGetSingleProduct = () => {
   return {
     product,
     isError,
-    isLoading,handleDeleteProduct
+    isLoading,
+    handleDeleteProduct,
   };
 };

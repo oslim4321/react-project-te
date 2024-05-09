@@ -1,3 +1,4 @@
+import { publicRequest } from "@/shared/api/request";
 import { useEffect, useState } from "react";
 
 export const useGetProduct = () => {
@@ -8,10 +9,8 @@ export const useGetProduct = () => {
   async function getAllProduct() {
     setisLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/api/v1/product");
-      const data = await res.json();
-      console.log(data);
-      setproduct(data);
+      const res = await publicRequest.get("/product");
+      setproduct(res.data);
     } catch (error) {
       console.log(error);
       setisError(true);
