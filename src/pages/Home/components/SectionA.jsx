@@ -1,10 +1,23 @@
+import { servantAddMoney, servantDebitMoney } from "@/features/kingMoneySlice";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const SectionA = () => {
+  const dispatch = useDispatch();
+
+  function increaseKingMoney() {
+    dispatch(servantAddMoney());
+  }
+
+  function decreamentKingMoney() {
+    dispatch(servantDebitMoney());
+  }
   return (
     <div className="flex justify-center items-center flex-col gap-10">
       <h1 className="text-5xl">Helllo World</h1>
       <Link to={"/about-us"}>Go to About section</Link>
+      <button onClick={increaseKingMoney}>Add Money</button>
+      <button onClick={decreamentKingMoney}>Debit Money</button>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, odio
         explicabo mollitia repellendus minima reprehenderit quasi excepturi

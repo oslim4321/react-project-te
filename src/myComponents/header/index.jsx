@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import UserStatus from "./UserStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const list = [
@@ -32,12 +33,17 @@ const Header = () => {
   ];
 
   const [isShow, setisShow] = useState(false);
+
+  const { amount } = useSelector((state) => state.kingMoney);
+
+  // console.log(kingBalance.amount);
   return (
     <div>
       <body className="bg-blue-500">
         {/* DESKTOP */}
         <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
           <a className="text-3xl font-bold leading-none">
+            <div className="text-3xl"> {amount}</div>
             <svg className="h-10" alt="logo" viewBox="0 0 10240 10240">
               <path
                 xmlns="http://www.w3.org/2000/svg"

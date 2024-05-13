@@ -11,6 +11,7 @@ import AuthPage from "./AuthPage";
 import SignUp from "@/pages/auth/signup";
 import Login from "@/pages/auth/login";
 import Dashboard from "@/pages/dashboard";
+import TodoList from "@/pages/todolist";
 
 export const route = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const route = createBrowserRouter([
       {
         path: "product/:id",
         element: <SingleProduct />,
+      },
+      {
+        path: "todolist",
+        element: <TodoList />,
       },
     ],
   },
